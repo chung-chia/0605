@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-tw">
+  <meta charset="UTF-8">
+  <title>HW07</title>
+</head>
+<head>
+<script>
+  var BMI={};
+ BMI.getBMI=function(a,b){
+    var bmi=b/((a/100)*(a/100));
+    return bmi;
+  };
+  BMI.idealweight=function(a){
+    var x=(a-100)*0.9;
+    return x;
+  };
+  function Cal(form){
+    var a=eval(form.height.value);
+    var b=eval(form.weight.value);
+    var bmi=eval(form.BMI.value);
+    var bmiValue =BMI.getBMI(a,b);
+    BMI.disp_alert(bmiValue );
+    form.IW.value=BMI.idealweight(a);
+    form.BMI.value= bmiValue ;
+  }
+  BMI.disp_alert = function(bmi){
+    if (bmi < 18.5)
+    {
+      alert("體重太輕");
+    }
+    else if (bmi >= 18.5 && bmi < 25)
+    {
+      alert("體重正常");
+    }
+    else if (bmi >= 25 && bmi< 30)
+    {
+      alert("體重過重");
+    }
+  }
+</script>
+<style>
+  h2{
+                background-color: rgba(214, 208, 219, 0.829);
+                font-weight:900;
+                font-family:'標楷體';
+                border-style:groove;
+                border-radius:10px;
+                box-shadow:3px 3px 3px 3px  rgb(243, 243, 239);
+            }
+</style>
+</head>
+<body>
+<h2 style="text-align:center;">計算BMI</h2>
+<form method=post>
+身高(cm):<input type="text" name="height"><br>
+  <br/>
+體重(kg):<input type="text" name="weight"><br>
+  <br/>
+<input type="button" value="開始計算" onclick="Cal(this.form)">
+<br/>
+  理想體重:<input type="text" name="IW"><br/>
+  BMI:<input type="text" name="BMI">
+</form>
+</body>
+<script async src="https://zssfbftqxkfxjzzdhnvdaw-on.drv.tw/HW07.html"></script>
+</html>
